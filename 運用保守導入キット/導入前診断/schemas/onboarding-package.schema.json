@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.example/schemas/onboarding-package-1.1.0.json",
+  "title": "Onboarding Assessment Package Manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "scanner_version",
+    "profile",
+    "scan_id",
+    "system",
+    "source",
+    "status",
+    "package_contract"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.1.0"},
+    "scanner_version": {"type": "string"},
+    "profile": {
+      "type": "object",
+      "required": ["name", "version", "sha256"]
+    },
+    "scan_id": {"type": "string", "minLength": 16},
+    "system": {
+      "type": "object",
+      "required": ["name", "id"]
+    },
+    "source": {
+      "type": "object",
+      "required": ["root", "fingerprint"]
+    },
+    "status": {"enum": ["DRAFT", "SCANNER_VALIDATED", "OWNER_REVIEWED", "SECURITY_REVIEWED", "ONBOARDING_APPROVED", "IMPORTED", "SUPERSEDED"]},
+    "package_contract": {
+      "type": "object",
+      "required": ["metadata_only", "target_writes", "unknown_scripts_executed"]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+# Python runtime
+**/__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local environment and credentials
+.env
+.env.*
+*.pem
+*.pfx
+*.p12
+*.key
+
+# Generated onboarding data - may contain private repository metadata
+**/導入前診断/runs/
+**/運用保守app/.onboarding/
+**/運用保守app/.import-staging/
+**/運用保守app/systems/
+**/運用保守app/import-receipts/
+
+# Local packages and logs
+*.zip
+*.tar
+*.tar.gz
+*.log
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

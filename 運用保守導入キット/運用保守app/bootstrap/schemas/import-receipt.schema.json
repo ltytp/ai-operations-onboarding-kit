@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.example/schemas/import-receipt-1.0.0.json",
+  "title": "Onboarding Package Import Receipt",
+  "type": "object",
+  "required": ["receipt_version", "imported_at", "scan_id", "system", "source_fingerprint", "package_destination", "status"],
+  "properties": {
+    "receipt_version": {"const": "1.0.0"},
+    "scan_id": {"type": "string", "minLength": 16},
+    "status": {"const": "IMPORTED"},
+    "source_fingerprint": {"type": "string", "minLength": 64, "maxLength": 64}
+  }
+}

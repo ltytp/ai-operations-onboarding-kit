@@ -1,0 +1,152 @@
+{
+  "deployment_manifest_version": "1.0.0",
+  "diagnosis_files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "07e7ef9cff3a6a907023ac7a61df9f97305502eb43dce5f217ac9da838e6afe1",
+      "size_bytes": 986
+    },
+    {
+      "path": "README.md",
+      "sha256": "6b908dbdde0f2a343b0945eb9cd390c4d680a4233a25d4131b8543bd9a04c252",
+      "size_bytes": 5368
+    },
+    {
+      "path": "diagnose.py",
+      "sha256": "0c9cfc4c054bae95b6e06cc47724637eeb0b022cc9746753c1d78eedcb435522",
+      "size_bytes": 214
+    },
+    {
+      "path": "run-diagnosis.ps1",
+      "sha256": "31987a36a6a9008106e3c9ae824875b0fa5972185799835b4fb6297899bef613",
+      "size_bytes": 808
+    },
+    {
+      "path": "validate-package.ps1",
+      "sha256": "db69bb3f2479987e4e69918a3662afd481ed5f636f625e843891eb48b74a2a49",
+      "size_bytes": 337
+    },
+    {
+      "path": "set-golden-work-item.ps1",
+      "sha256": "2481d1c278386f3ea2a1f4fadb7562069cc25d16fdd1b72ba24c1e374d556c8d",
+      "size_bytes": 852
+    },
+    {
+      "path": "advance-signoff.ps1",
+      "sha256": "53f8683b9ef2838cf403bfe67c4e02e2fd4a701f02538e32dbb7014a41383450",
+      "size_bytes": 837
+    },
+    {
+      "path": "verify-source.ps1",
+      "sha256": "3c47082c666940c39524677e20f03a9aad5a82f303f7b11d8e2645dea48f1388",
+      "size_bytes": 584
+    },
+    {
+      "path": "profiles/default-profile.json",
+      "sha256": "cb4bdf21c8deb0c310977ff487b29344e4ac51943da7870f187abbb999e082ed",
+      "size_bytes": 1124
+    },
+    {
+      "path": "schemas/onboarding-package.schema.json",
+      "sha256": "bb2d4612c7fbeeffe45b282f1dd9c07dad12da43aca87c4bbfd87935d66da473",
+      "size_bytes": 1076
+    },
+    {
+      "path": "src/preinstall_diagnosis/__init__.py",
+      "sha256": "c7c7b0128c807436d862be9d555ee2f1a50bdf97dc4f0af432aec497c0d4f1bf",
+      "size_bytes": 101
+    },
+    {
+      "path": "src/preinstall_diagnosis/scanner.py",
+      "sha256": "6f46ac4c4e65be3f78f1057aa8784d2f5851ae3efc6891b7b78619ce007c7f13",
+      "size_bytes": 14966
+    },
+    {
+      "path": "src/preinstall_diagnosis/builder.py",
+      "sha256": "9ca4e2559405af9cf44958768d3783ccd80a88fd19d1319ac8230f89077125c0",
+      "size_bytes": 13832
+    },
+    {
+      "path": "src/preinstall_diagnosis/validator.py",
+      "sha256": "ee95c482fb21037771645011e6a917187d7b2b614ed66000e116c6406a9d479f",
+      "size_bytes": 3830
+    },
+    {
+      "path": "src/preinstall_diagnosis/package_ops.py",
+      "sha256": "ced333a0b5eddb69347470b999662823ceac9bddff4b83acb27cb18c5faee08d",
+      "size_bytes": 4950
+    },
+    {
+      "path": "src/preinstall_diagnosis/cli.py",
+      "sha256": "a93e01e4eb9d8c5977caa191e64a07c27dc1d197a04df6c5161c72cbb76730e2",
+      "size_bytes": 7639
+    }
+  ],
+  "excluded_categories": [
+    "design markdown",
+    "visual explanation html",
+    "tests",
+    "__pycache__",
+    "past runs",
+    "existing systems",
+    "import receipts"
+  ],
+  "operations_files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "e108828a9b604ea4b18472f8ae3cc2d710d6463ac55f24aaecf437277d836357",
+      "size_bytes": 1558
+    },
+    {
+      "path": "START_HERE.md",
+      "sha256": "38fa0ca94ffcbcb4525db91e6c521abd73df425426298e2e04ee2532c739a9d7",
+      "size_bytes": 3626
+    },
+    {
+      "path": "ONBOARDING_IMPORT.md",
+      "sha256": "1bf64734db3530ca8dd8032268f556cf0375b1203e1524be8a8198fe7bc42d90",
+      "size_bytes": 450
+    },
+    {
+      "path": "workspace_onboard.py",
+      "sha256": "b8f6956149379d853085792f8b5c6429c23fbb4228d35e987d83ffa3aa972c0a",
+      "size_bytes": 15068
+    },
+    {
+      "path": "onboard.sh",
+      "sha256": "b86e0c4e9e06966a89e2a6b11d0815b412f8618fb014766353b6dab903cd8b61",
+      "size_bytes": 198
+    },
+    {
+      "path": "onboard.ps1",
+      "sha256": "a32118e75bcc7e806b53f6476d6cfe92dca9ce10c774adc936d2190c07339053",
+      "size_bytes": 317
+    },
+    {
+      "path": "bootstrap/README.md",
+      "sha256": "638e450a3ea6b65559d8f19a38628e771261bfda9d3455e171fd439fc56c042f",
+      "size_bytes": 2756
+    },
+    {
+      "path": "bootstrap/bootstrap_import.py",
+      "sha256": "ea1fef238a7fb40f10af57be4e9c4abc5d89db118cb6e9f7970ebdbaa36b1a85",
+      "size_bytes": 12921
+    },
+    {
+      "path": "bootstrap/bootstrap-import.ps1",
+      "sha256": "4ce124acd575ad0d746bff1c7029da7f27f405487ba2e4c55f51e77d8a886e7b",
+      "size_bytes": 937
+    },
+    {
+      "path": "bootstrap/preflight-import.ps1",
+      "sha256": "c9932bde9354e2d2068231fd130acb6ed6c3fdce7276735452e360c9220903c6",
+      "size_bytes": 934
+    },
+    {
+      "path": "bootstrap/schemas/import-receipt.schema.json",
+      "sha256": "05fa0d64928280c75057990147c1de98d9544bd53bf305584fbce587933666bd",
+      "size_bytes": 560
+    }
+  ],
+  "source_manifest_version": "1.0.0"
+}
