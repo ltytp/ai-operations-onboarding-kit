@@ -23,6 +23,12 @@
 ├─ SECURITY.md
 ├─ .gitignore
 ├─ .gitattributes
+├─ docs/
+│  └─ product-design/
+│     ├─ 00_HANDOFF_INDEX.md
+│     ├─ 01_BACKGROUND_AND_PROBLEM.md
+│     ├─ ...
+│     └─ 99_OPEN_QUESTIONS.md
 └─ 運用保守導入キット/
    ├─ 導入前診断/
    ├─ 運用保守app/
@@ -30,6 +36,12 @@
 ```
 
 `運用保守導入キット/導入準備完了.md`が導入担当者とAgentの開始点です。
+
+## Product design documents
+
+背景、要件、Knowledge Model、Graph、UI、Security、PoC計画などの設計書17種類は、[`docs/product-design/`](docs/product-design/)にあります。
+
+Repository全体のKnowledge整理・可視化を検討するときは、同Folderの[`README.md`](docs/product-design/README.md)を入口にしてください。設計書は設計基準と判断履歴であり、現在実装済みの機能一覧ではありません。
 
 ## Requirements
 
@@ -138,11 +150,12 @@ python3 <path-to-kit>/運用保守app/workspace_onboard.py import
 - Versioned Profile / Schema
 - Agent向けの安全な実行手順
 - 導入Document
+- 公開可能性を確認したProduct design Markdown
 
 含めないもの:
 
-- App開発用の設計Markdown
 - Graph説明HTML
+- 顧客固有・未Reviewの内部設計資料
 - Test cache
 - 過去の診断Package
 - System Inventory、Graph seed、Import receipt
