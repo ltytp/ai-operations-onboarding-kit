@@ -24,6 +24,7 @@
 ├─ .gitignore
 ├─ .gitattributes
 ├─ docs/
+│  ├─ WORKSPACE_INSTALLATION.md
 │  └─ product-design/
 │     ├─ 00_HANDOFF_INDEX.md
 │     ├─ 01_BACKGROUND_AND_PROBLEM.md
@@ -54,14 +55,18 @@ Repository全体のKnowledge整理・可視化を検討するときは、同Fold
 
 ## Codespacesへの導入
 
-対象RepositoryのCodespaces terminalで実行します。
+詳しい手順は[`docs/WORKSPACE_INSTALLATION.md`](docs/WORKSPACE_INSTALLATION.md)を参照してください。
+
+対象RepositoryとKitを`/workspaces`配下の兄弟Folderとして配置する方法を推奨します。
 
 ```bash
 cd /workspaces/<target-repository>
+TARGET_ROOT="$(pwd -P)"
 
+cd /workspaces
 git clone --depth 1 \
   https://github.com/ltytp/ai-operations-onboarding-kit.git \
-  .tools/ai-operations-onboarding-kit
+  ai-operations-onboarding-kit
 ```
 
 Release後は、再現性のため承認済みTagを固定してください。
@@ -70,30 +75,40 @@ Release後は、再現性のため承認済みTagを固定してください。
 git clone --depth 1 \
   --branch <release-tag> \
   https://github.com/ltytp/ai-operations-onboarding-kit.git \
-  .tools/ai-operations-onboarding-kit
+  ai-operations-onboarding-kit
 ```
 
 配置確認と診断開始:
 
 ```bash
-python3 \
-  .tools/ai-operations-onboarding-kit/運用保守導入キット/運用保守app/workspace_onboard.py \
-  doctor
+KIT_REPO="/workspaces/ai-operations-onboarding-kit"
+KIT_ROOT="$KIT_REPO/運用保守導入キット"
+DIAGNOSIS_ROOT="$KIT_ROOT/導入前診断"
+OPERATIONS_ROOT="$KIT_ROOT/運用保守app"
+ONBOARD="$OPERATIONS_ROOT/workspace_onboard.py"
 
-python3 \
-  .tools/ai-operations-onboarding-kit/運用保守導入キット/運用保守app/workspace_onboard.py \
-  start
+python3 "$ONBOARD" doctor \
+  --workspace-root "$TARGET_ROOT" \
+  --target "$TARGET_ROOT" \
+  --diagnosis-root "$DIAGNOSIS_ROOT" \
+  --operations-root "$OPERATIONS_ROOT"
+
+python3 "$ONBOARD" start \
+  --workspace-root "$TARGET_ROOT" \
+  --target "$TARGET_ROOT" \
+  --diagnosis-root "$DIAGNOSIS_ROOT" \
+  --operations-root "$OPERATIONS_ROOT"
 ```
 
-Scriptは最も近い`.git`からWorkspace rootを検出します。導入Kit自身と案内Documentは診断対象から相対Path単位で除外されます。
+`doctor`の出力で、`target`と`workspace`が対象Repositoryを指し、`ready`が`true`であることを確認してから`start`を実行してください。Kitを対象Repository内へcloneした場合も、自動検出に任せず同じ引数で対象Rootを明示します。
 
 ## Agentへ渡すPrompt
 
 ```text
 Repository内にAI Operations Onboarding KitをCloneしました。
-運用保守導入キット/導入準備完了.mdを最初に読み、2つのTool FolderのAGENTS.md、START_HERE.md、README.mdを確認してください。
+README.md、docs/WORKSPACE_INSTALLATION.md、運用保守導入キット/導入準備完了.mdを最初に読み、2つのTool FolderのAGENTS.mdとSTART_HERE.mdを確認してください。
 
-workspace_onboard.py doctorでGit Workspace、診断Folder、運用保守Folder、Targetを確認し、問題がなければstartで読取専用診断を実行してください。
+対象Repository Root、Kit Root、診断Folder、運用保守Folderを明示し、workspace_onboard.py doctorでTargetが対象Repositoryを指すことを確認してください。問題がなければstartで読取専用診断を実行してください。
 導入Kitは診断対象から除外してください。
 
 診断Report、Open Questions、Golden Work Item候補を説明してください。承認者名、Review evidence、Security判断は推測せず、必要なGateで私に確認してください。
@@ -120,13 +135,21 @@ Doctor
 状態確認:
 
 ```bash
-python3 <path-to-kit>/運用保守app/workspace_onboard.py status
+python3 "$ONBOARD" status \
+  --workspace-root "$TARGET_ROOT" \
+  --target "$TARGET_ROOT" \
+  --diagnosis-root "$DIAGNOSIS_ROOT" \
+  --operations-root "$OPERATIONS_ROOT"
 ```
 
 承認完了後のImport:
 
 ```bash
-python3 <path-to-kit>/運用保守app/workspace_onboard.py import
+python3 "$ONBOARD" import \
+  --workspace-root "$TARGET_ROOT" \
+  --target "$TARGET_ROOT" \
+  --diagnosis-root "$DIAGNOSIS_ROOT" \
+  --operations-root "$OPERATIONS_ROOT"
 ```
 
 ## Generated data
